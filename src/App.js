@@ -3,6 +3,8 @@ import styles from "./App.module.css";
 import { useCallback, useEffect, useState } from "react";
 import Container from "./components/layout/Container";
 import Card from "./components/UI/Card";
+import MenuCard from "./components/MenuCard";
+import MainPage from "./pages/MainPage";
 
 function App() {
   const [movies, setMovies] = useState({});
@@ -27,8 +29,7 @@ function App() {
   return (
     <div className={styles.app}>
       <Container>
-        <h2>Hi! It's my simple React.js app which using Star Wars API</h2>
-        <Card />
+        <MainPage />
       </Container>
     </div>
   );
