@@ -1,7 +1,8 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const MenuCard = (props) => {
-  const Card = styled.div`
+  const Card = styled(Link)`
     background-color: ${props.style.color};
     border-radius: 1em;
     padding: 1em;
@@ -14,6 +15,8 @@ const MenuCard = (props) => {
 
     display: flex;
     flex-direction: column;
+    text-decoration: none;
+    color: black;
 
     &:hover {
       box-shadow: 0.7em 0.7em ${props.style.shadow};
@@ -43,10 +46,10 @@ const MenuCard = (props) => {
     justify-content: space-between;
   `;
 
-  const Link = styled.a`
-    text-decoration: none;
-    color: black;
-  `;
+  // const Link = styled.a`
+  //   text-decoration: none;
+  //   color: black;
+  // `;
 
   const Image = styled.img`
     /* height: 100%; */
@@ -61,11 +64,12 @@ const MenuCard = (props) => {
   `;
 
   return (
-    <Card>
+    <Card to={props.url}>
       <Container>
         <Image alt={props.img.alt} src={props.img.href} />
         <Paragraph>
-          <Link href={props.href}>{props.label}</Link>
+          {/* <Link href={props.href}>{props.label}</Link> */}
+          {props.label}
         </Paragraph>
       </Container>
     </Card>

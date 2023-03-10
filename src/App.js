@@ -1,35 +1,27 @@
 import styles from "./App.module.css";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 
-import { useCallback, useEffect, useState } from "react";
 import Container from "./components/layout/Container";
-import Card from "./components/UI/Card";
-import MenuCard from "./components/MenuCard";
 import MainPage from "./pages/MainPage";
+import People from "./pages/People";
+import Films from "./pages/Films";
 
 function App() {
-  const [movies, setMovies] = useState({});
-
-  const fetchMoviesHandler = useCallback(async () => {
-    try {
-      const response = await fetch("https://swapi.py4e.com/api/films/");
-      setMovies(await response.json());
-    } catch {
-      throw new Error();
-    }
-  }, []);
-
-  useEffect(() => {
-    fetchMoviesHandler();
-  }, [fetchMoviesHandler]);
-
-  useEffect(() => {
-    console.log(movies);
-  }, [movies]);
+  // TODO: Create componets for each route (or one for displaying data)
+  const router = createBrowserRouter([
+    { path: "/", element: <MainPage /> },
+    { path: "/people", element: <People /> },
+    { path: "/films", element: <Films /> },
+    { path: "/starships", element: <People /> },
+    { path: "/vehicles", element: <People /> },
+    { path: "/species", element: <People /> },
+    { path: "/planets", element: <People /> },
+  ]);
 
   return (
     <div className={styles.app}>
       <Container>
-        <MainPage />
+        <RouterProvider router={router} />
       </Container>
     </div>
   );

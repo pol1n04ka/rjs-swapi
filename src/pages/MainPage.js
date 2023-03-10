@@ -16,6 +16,7 @@ const cards = [
     shadow: "#65FF74",
     title: "People",
     img: { href: peopleImg, alt: "Luke Skywalker" },
+    url: "/people",
   },
   {
     id: 1,
@@ -23,6 +24,7 @@ const cards = [
     shadow: "#D987FF",
     title: "Films",
     img: { href: filmsImg, alt: "" },
+    url: "/films",
   },
   {
     id: 2,
@@ -30,6 +32,7 @@ const cards = [
     shadow: "#76FFF7",
     title: "Starships",
     img: { href: starshipsImg, alt: "" },
+    url: "/starships",
   },
   {
     id: 3,
@@ -37,6 +40,7 @@ const cards = [
     shadow: "#FF9797",
     title: "Vehicles",
     img: { href: vehiclesImg, alt: "" },
+    url: "/vehicles",
   },
   {
     id: 4,
@@ -44,6 +48,7 @@ const cards = [
     shadow: "#89AAFF",
     title: "Species",
     img: { href: speciesImg, alt: "" },
+    url: "/species",
   },
   {
     id: 5,
@@ -51,6 +56,7 @@ const cards = [
     shadow: "#FFDC82",
     title: "Planets",
     img: { href: planetsImg, alt: "" },
+    url: "/planets",
   },
 ];
 
@@ -76,7 +82,7 @@ const MainPage = () => {
               key={el.id}
               style={{ color: el.color, shadow: el.shadow }}
               img={{ alt: el.img.alt, href: el.img.href }}
-              href=""
+              url={el.url}
               label={el.title}
             />
           );
